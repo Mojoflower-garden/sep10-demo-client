@@ -7,10 +7,10 @@ module.exports = function (defaults) {
     autoImport: {
       webpack: {
         node: {
-          fs: "empty",
-        }
-      }
-    }
+          fs: 'empty',
+        },
+      },
+    },
   });
 
   app.import('node_modules/parsleyjs/dist/parsley.js');
