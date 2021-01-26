@@ -1,0 +1,153 @@
+<div class="row m-5">
+  <div class="col-md-12 text-center">
+    <h2 class="display-5">SEP10 Demo Client</h2>
+    <p class="lead">validate your <a href="https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0010.md" target="_blank" rel="noopener noreferrer">Stellar SEP10</a> implementation</p>
+  </div>
+</div>
+<ParsleyForm @id="request-auth" @action={{this.authenticate}}>
+<div class="row">
+  <div class="col-md-8">
+    <div class="form-group">
+      <label class="col-form-label-sm">Client account (public key)</label>
+      <Input
+        class="form-control-plaintext"
+        @id="txtPublicKey"
+        @type="text"
+        readonly="readonly"
+        @value={{this.publicKey}}
+      />
+    </div>
+    <ul class="nav nav-tabs" id="responseTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="token-tab" data-toggle="tab" href="#token" role="tab" aria-controls="token" aria-selected="true">Token</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="signedChallenge-tab" data-toggle="tab" href="#signedChallenge" role="tab" aria-controls="signedChallenge" aria-selected="false">Signed challenge</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="challenge-tab" data-toggle="tab" href="#challenge" role="tab" aria-controls="challenge" aria-selected="false">Challenge</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="responseTabContent">
+      <div class="tab-pane fade show active" id="token" role="tabpanel" aria-labelledby="token-tab">
+        <div class="form-group">
+          {{!-- <label for="txtToken">Token</label> --}}
+          <Textarea
+            @id="txtToken"
+            class="form-control"
+            @value={{this.lastRequest.token}}
+            rows="13"
+            readonly="readonly"
+            aria-describedby="tokenHelp"
+          />
+          <small id="tokenHelp" class="form-text text-muted">
+          {{#if this.lastRequest.token}}
+            <a target="_blank" href="https://jwt.io/?token={{this.lastRequest.token}}" rel="noopener noreferrer">
+              View on jwt.io
+            </a>
+          {{/if}}
+          </small>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="signedChallenge" role="tabpanel" aria-labelledby="signedChallenge-tab">
+        <div class="form-group">
+          {{!-- <label for="txtSignedChallenge">Signed challenge</label> --}}
+          <Textarea
+            @id="txtSignedChallenge"
+            class="form-control"
+            @value={{this.lastRequest.signedChallenge}}
+            rows="13"
+            readonly="readonly"
+            aria-describedby="signedChallengeHelp"
+          />
+          <small id="signedChallengeHelp" class="form-text text-muted">
+          {{#if this.lastRequest.signedChallenge}}
+            <a target="_blank" href="https://laboratory.stellar.org/#xdr-viewer?input={{this.lastRequest.signedChallengeEncoded}}" rel="noopener noreferrer">
+              View on Stellar laboratory
+            </a>
+          {{/if}}
+          </small>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="challenge" role="tabpanel" aria-labelledby="challenge-tab">
+        <div class="form-group">
+          {{!-- <label for="txtChallenge">Challenge</label> --}}
+          <Textarea
+          @id="txtChallenge"
+          class="form-control"
+          @value={{this.lastRequest.challenge}}
+          rows="13"
+          readonly="readonly"
+          aria-describedby="challengeHelp"
+          />
+          <small id="challengeHelp" class="form-text text-muted">
+          {{#if this.lastRequest.challenge}}
+            <a target="_blank" href="https://laboratory.stellar.org/#xdr-viewer?input={{this.lastRequest.challengeEncoded}}" rel="noopener noreferrer">
+              View on Stellar laboratory
+            </a>
+          {{/if}}
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="secretKey" class="col-form-label-sm">Client account (secret)*</label>
+      <Input
+        class="form-control"
+        placeholder="SDE3QA...CUYLCS"
+        required="required"
+        aria-describedby="secretKeyHelp"
+        @id="secretKey"
+        @value={{this.secretKey}}
+      />
+      <small id="secretKeyHelp" class="form-text text-muted">stellar account secret key</small>
+    </div>
+
+    <div class="form-group">
+      <label class="col-form-label-sm">Home domain*</label>
+      <Input
+        @value={{this.homeDomain}}
+        class="form-control"
+        placeholder="myhomedomain.com"
+        required="required"
+        pattern="(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]"
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="col-form-label-sm">Server auth endpoint (optional)</label>
+      <Input
+        @type="url"
+        @value={{this.authEndpoint}}
+        class="form-control"
+        placeholder="http://127.0.0.1:3000/auth or https://myhomedomain.com/auth"
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="col-form-label-sm">Server auth signing account (optional)</label>
+      <Input
+        @value={{this.authAccount}}
+        class="form-control"
+        placeholder="GCZF7C...SZ3AUH"
+      />
+    </div>
+    <hr>
+    <button id="btn-request" type="submit" class="btn btn-outline-primary btn-lg btn-block text-uppercase">
+      {{#if this.loading}}
+        <div class="loader float-right"></div>
+        authenticating
+      {{else}}
+        authenticate
+      {{/if}}
+    </button>
+    {{#if this.error}}
+    <div class="alert alert-danger mt-3" role="alert">
+      {{this.error}}
+    </div>
+    {{/if}}
+  </div>
+</div>
+</ParsleyForm>
