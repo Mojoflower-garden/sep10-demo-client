@@ -1,11 +1,12 @@
-# sep10-demo-client
+# Stellar SEP10 Demo Client
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This demo implements the client side of a Stellar
+[SEP10](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0010.md).  
+It is deployed from master to [https://dolcalmi.github.io/sep10-demo-client/](https://dolcalmi.github.io/sep10-demo-client/)
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
+If you want to run it locally, you will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with npm)
@@ -14,7 +15,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone git@github.com:dolcalmi/sep10-demo-client.git` this repository
 * `cd sep10-demo-client`
 * `npm install`
 
@@ -23,10 +24,6 @@ You will need the following things properly installed on your computer.
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
 
 ### Running Tests
 
@@ -46,12 +43,4 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+`ember deploy production`
