@@ -1,11 +1,11 @@
 {
   "name": "sep10-demo-client",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
-  "description": "Small description for sep10-demo-client goes here",
+  "description": "Stellar SEP10 Demo Client",
   "repository": "",
   "license": "MIT",
-  "author": "",
+  "author": "dolcalmi",
   "directories": {
     "doc": "doc",
     "test": "tests"

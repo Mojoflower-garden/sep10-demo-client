@@ -4,7 +4,7 @@
     <p class="lead">validate your <a href="https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0010.md" target="_blank" rel="noopener noreferrer">Stellar SEP10</a> implementation</p>
   </div>
 </div>
-{{#parsley-form id="request-payment" class="user" action=(action "authenticate")}}
+<ParsleyForm @id="request-auth" @action={{this.authenticate}}>
 <div class="row">
   <div class="col-md-8">
     <div class="form-group">
@@ -150,4 +150,4 @@
     {{/if}}
   </div>
 </div>
-{{/parsley-form}}
+</ParsleyForm>
