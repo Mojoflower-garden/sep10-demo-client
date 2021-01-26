@@ -48,5 +48,11 @@ module.exports = function (environment) {
     ENV.locationType = 'hash';
   }
 
+  ENV.contentSecurityPolicy = {
+    'img-src': ["'self'", "data:"],
+    'style-src': ["'self'", "'unsafe-inline'"],
+    'connect-src': ["'self'", "*"],
+  };
+
   return ENV;
 };
