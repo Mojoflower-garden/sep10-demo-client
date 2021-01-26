@@ -48,5 +48,9 @@ module.exports = function (environment) {
     ENV.locationType = 'hash';
   }
 
+  ENV.contentSecurityPolicy = {
+    'connect-src': "'self' '*'"
+  }
+
   return ENV;
 };
