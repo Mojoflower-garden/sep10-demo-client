@@ -19,8 +19,6 @@ module.exports = function (deployTarget) {
 
   if (deployTarget === 'production') {
     ENV.build.environment = 'production';
-    ENV.rootURL = '/sep10-demo-client';
-    ENV.locationType = 'hash';
   }
 
   ENV.git = {
