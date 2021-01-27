@@ -2,7 +2,7 @@
 
 This demo implements the client side of a Stellar
 [SEP10](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0010.md).  
-It is deployed from master to [https://dolcalmi.github.io/sep10-demo-client/](https://dolcalmi.github.io/sep10-demo-client/)
+It is deployed from master to [https://mojoflower.github.io/sep10-demo-client/](https://mojoflower.github.io/sep10-demo-client/)
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ If you want to run it locally, you will need the following things properly insta
 
 ## Installation
 
-* `git clone git@github.com:dolcalmi/sep10-demo-client.git` this repository
+* `git clone git@github.com:mojoflower/sep10-demo-client.git` this repository
 * `cd sep10-demo-client`
 * `npm install`
 

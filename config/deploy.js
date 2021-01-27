@@ -22,7 +22,7 @@ module.exports = function (deployTarget) {
   }
 
   ENV.git = {
-    repo: 'git@github.com:dolcalmi/sep10-demo-client.git',
+    repo: 'git@github.com:mojoflower/sep10-demo-client.git',
   };
 
   // Note: if you need to build some configuration asynchronously, you can return
